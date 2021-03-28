@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void GetHighscore()
     {
         highscore = PlayerPrefs.GetInt("Highscore");
-        highscoreText.text = "Рекорд: " + highscore.ToString();
+        highscoreText.text = "Highscore: " + highscore.ToString();
     }
 
     public void IncreaseScoreText(int points)
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         if (score > highscore)
         {
             PlayerPrefs.SetInt("Highscore", score);
-            highscoreText.text = "Рекорд: " + score.ToString();
+            highscoreText.text = "Highscore: " + score.ToString();
             highscore = score;
         }
     }
@@ -53,15 +53,14 @@ public class GameManager : MonoBehaviour
     {
         //Advertisement.Show(); // Показ рекламного окна
         Time.timeScale = 0;
-        Debug.Log("Bomb hit!!!");
 
         gameOverPanel.SetActive(true);
-        gameOverScoreText.text = "Ваш счет: " + score.ToString();
+        gameOverScoreText.text = "Your score: " + score.ToString();
 
         if(score == highscore)
-            gameOverHighscoreText.text = "И это новый рекорд!";
+            gameOverHighscoreText.text = "And it is a new highscore!";
         else
-            gameOverHighscoreText.text = "Рекорд: " + highscore.ToString();
+            gameOverHighscoreText.text = "Highscore: " + highscore.ToString();
     }
 
     public void RestartGame()
